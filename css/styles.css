@@ -1,0 +1,98 @@
+body {
+    background-color: var(--beige, #EBE6D3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+:root {
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.75rem;
+    --font-family-h1: jaldi, sans-serif;
+    --font-family-h2: jaldi, sans-serif;
+    --font-family-h3: jaldi, sans-serif;
+    --font-weight-h1: 200;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    background-color: var(--beige, #EBE6D3);
+    animation: slideOut 0.5s ease-out 3s forwards;
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 14vh;
+}
+
+.icon-bike {
+    width: 218px;
+    height: 218px;
+
+}
+
+
+
+.logo-title {
+    display: flex;
+    width: 349px;
+    height: 48px;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--blau, #265970);
+    font-family: Jaldi;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.logo-subtitle {
+    color: var(--blau, #265970);
+    font-family: Jaldi;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 7.2px;
+}
+
+/* Medium devices (tablets, 600px and up) */
+@media (min-width: 600px) {
+    html {
+        font-size: 16px;
+
+    }
+
+    .logo-title {
+        font-size: 72px;
+    }
+
+}
+
+
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+}
