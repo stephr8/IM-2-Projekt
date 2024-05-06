@@ -55,3 +55,9 @@
     display: inline-flex;
     gap: 21px;
 }
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
