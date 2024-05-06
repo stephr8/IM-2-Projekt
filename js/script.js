@@ -1,85 +1,86 @@
 const app = document.querySelector('#app');
-const url = "https://api.publibike.ch/v1/public/partner/stations";
 
 
-
-
-async function fetchData(url) {
-    let url = `https://api.publibike.ch/v1/public/partner/stations`;
+async function fetchData() {
+    let url = "130_extract.php";
     try {
         let stations = await fetch(url); //response in pokemon
         let data = await stations.json();
-        return data;
+        let data_chur = data.stations.filter((element) => element.city == "Chur");
+        console.log(data_chur);
+        return data_chur;
     }
     catch (error) {
         console.error(error);
     }
 }
 
-function createCard(bike) {
-    let card = document.createElement('div');
-    card.className = 'bikeCard';
+fetchData();
 
-    let cardHeader = document.createElement('div');
-    cardHeader.className = 'cardHeader';
+// function createCard(bike) {
+//     let card = document.createElement('div');
+//     card.className = 'bikeCard';
 
-    let nameElement = document.createElement('h2');
-    nameElement.textContent = bike.name;
-    cardHeader.appendChild(nameElement);
-    let typesContainer = document.createElement('div');
-    typesContainer.className = 'typesContainer';
+//     let cardHeader = document.createElement('div');
+//     cardHeader.className = 'cardHeader';
 
-    bike.types.forEach(type => {
-        let typeIcon = document.createElement('div');
-        typeIcon.className = `icon ${type.type.name}`;
-        let typeSVG = document.createElement('img');
-        typeSVG.src = `./img/${type.type.name}.svg`;
-        typeSVG.alt = type.type.name;
-        typeIcon.appendChild(typeSVG);
-        typesContainer.appendChild(typeIcon);
-    });
+//     let nameElement = document.createElement('h2');
+//     nameElement.textContent = bike.name;
+//     cardHeader.appendChild(nameElement);
+//     let typesContainer = document.createElement('div');
+//     typesContainer.className = 'typesContainer';
 
-    cardHeader.appendChild(typesContainer);
-    card.appendChild(cardHeader);
+//     bike.types.forEach(type => {
+//         let typeIcon = document.createElement('div');
+//         typeIcon.className = `icon ${type.type.name}`;
+//         let typeSVG = document.createElement('img');
+//         typeSVG.src = `./img/${type.type.name}.svg`;
+//         typeSVG.alt = type.type.name;
+//         typeIcon.appendChild(typeSVG);
+//         typesContainer.appendChild(typeIcon);
+//     });
 
-    //image
+//     cardHeader.appendChild(typesContainer);
+//     card.appendChild(cardHeader);
 
-    let detailsDiv = document.createElement('div');
-    detailsDiv.className = 'detailsDiv';
+//     //image
 
-    let statsList = document.createElement('ul');
-    statsList.className = 'statsList';
+//     let detailsDiv = document.createElement('div');
+//     detailsDiv.className = 'detailsDiv';
 
-    bike.stats.forEach(stat => {
-        let statItem = document.createElement('li');
-        let statName = document.createElement('strong');
-        statName.textContent = `${stat.stat.name}: `;
-        statItem.appendChild(statName);
-        statItem.appendChild(document.createTextNode(stat.base_stat));
-        statsList.appendChild(statItem);
-    });
+//     let statsList = document.createElement('ul');
+//     statsList.className = 'statsList';
 
-    detailsDiv.appendChild(statsList);
-    card.appendChild(detailsDiv);
+//     bike.stats.forEach(stat => {
+//         let statItem = document.createElement('li');
+//         let statName = document.createElement('strong');
+//         statName.textContent = `${stat.stat.name}: `;
+//         statItem.appendChild(statName);
+//         statItem.appendChild(document.createTextNode(stat.base_stat));
+//         statsList.appendChild(statItem);
+//     });
 
-    app.appendChild(card);
-}
+//     detailsDiv.appendChild(statsList);
+//     card.appendChild(detailsDiv);
 
-
-
-
-
-
-// async function fetchData(url){
-//     try {
-//         let stations = await fetch(url);
-//         let data = await stations.json();
-//         console.log(data.stations);
-//     }
-//     catch (error){
-//         console.error(error);
-//     }
+//     app.appendChild(card);
 // }
 
-// fetchData(url);
+
+
+
+
+
+// // async function fetchData(url){
+// //     try {
+// //         let stations = await fetch(url);
+// //         let data = await stations.json();
+// //         console.log(data.stations);
+// //     }
+// //     catch (error){
+// //         console.error(error);
+// //     }
+// // }
+
+// // fetchData(url);
 

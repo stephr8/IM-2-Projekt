@@ -1,10 +1,11 @@
 <?php
 
-$nr = $_GET['n'];
+//$nr = $_GET['n'];
 
-if (!empty($nr)) {
+//if (!empty($nr)) {
     
-    $url = "https://api.publibike.ch/v1/public/stations/$nr";
+    //$url = "https://api.publibike.ch/v1/public/stations/$nr";
+    $url = "https://api.publibike.ch/v1/public/partner/stations";
     // Initialisiert eine cURL-Sitzung
     $ch = curl_init($url);
 
@@ -19,6 +20,6 @@ if (!empty($nr)) {
 
     // Dekodiert die JSON-Antwort und gibt Daten zurück
     echo $response;
-}
+//}
    
 ?>
