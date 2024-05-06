@@ -1,0 +1,57 @@
+.logo-smalltitle {
+    display: flex;
+    width: 349px;
+    height: 36px;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--blau, #265970);
+    font-family: Jaldi;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.logo-smallsubtitle {
+    color: var(--blau, #265970);
+    font-family: Jaldi;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 4px;
+}
+
+.smallicon-bike {
+    width: 118px;
+    height: 69px;
+}
+
+#static-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 56px;
+    left: 64px;
+
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 11vh;
+}
+
+#campus-content {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+#campus-display {
+    display: inline-flex;
+    gap: 21px;
+}
