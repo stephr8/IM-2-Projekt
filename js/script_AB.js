@@ -70,6 +70,22 @@ function createCard(vehicle, station) {
         distanceDiv.textContent = "300m";
     }
 
+    
+    distanceDiv.addEventListener('mouseover', () => {
+        distanceDiv.textContent = station.address + "  " + station.zip + "  " + station.city;
+    });
+    
+    distanceDiv.addEventListener('mouseout', () => {
+        if (station.id === 870) {
+            distanceDiv.innerHTML = "40m";
+        } else {
+            distanceDiv.innerHTML = "300m";
+        }
+        distanceDiv.innerHTML += directionIcon.outerHTML;
+    
+    });
+    
+    
     let detailsDiv = document.createElement('div');
     detailsDiv.className = 'detailsDiv';
 
