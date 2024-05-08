@@ -29,7 +29,6 @@ function processData(data) {
                 createCard(vehicle, station);
             });
         }
-        //  || stations.name == "Fachhochschule Graubünden Pulvermühlestrasse")
     }
 
 }
@@ -43,6 +42,7 @@ function createCard(vehicle, station) {
     cardHeader.className = 'cardHeader';
     let smalliconBike = document.createElement('img');
     smalliconBike.src = '../images/ebikeIcon.svg';
+    smalliconBike.id = "v" + vehicle.name;
     cardHeader.appendChild(smalliconBike);
     document.body.appendChild(cardHeader);
 
@@ -196,19 +196,21 @@ function createCard(vehicle, station) {
     //     overlay.style.display = 'block';
     // }
 
-    function bikeReserved() {
-        smalliconBike.src = '../images/smallicon-bike-crossed.svg';
-    }
+
 
     // Get reference to your existing button
     let button = document.createElement('button');
     button.className = 'button';
     button.textContent = "Reservieren";
+    button.dataset.vehicle = "v" + vehicle.name;
 
     // Add event listener to the existing button to show the overlay
-    button.addEventListener('click', function () {
-        showOverlay();
-        bikeReserved();
+    button.addEventListener('click', function (event) {
+        if (vehicle.ebike_battery_level == null) {
+            document.getElementById(event.target.dataset.vehicle).src = '../images/smallicon-bike-crossed.svg';
+        } else {
+            document.getElementById(event.target.dataset.vehicle).src = '../images/ebikeIcon-crossed.svg';
+        }
     });
 
     // Append the button to the document body (or to a specific container)
