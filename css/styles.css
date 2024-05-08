@@ -14,15 +14,15 @@
 
 }
 
-h1{
+h1 {
     color: var(--blau, #265970);
-text-align: center;
-font-family: Jaldi;
-font-size: 48px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-letter-spacing: 2.4px;
+    text-align: center;
+    font-family: Jaldi;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.4px;
 }
 
 body {
@@ -63,6 +63,7 @@ main {
     align-items: center;
     justify-content: center;
 }
+
 #startlogo {
     animation: delayAndMoveLeft forwards 2s;
 }
@@ -71,9 +72,11 @@ main {
     0% {
         transform: translate(0%, 0%);
     }
+
     50% {
         transform: translate(0%, 0%);
     }
+
     100% {
         transform: translate(200%, 0%);
     }
@@ -83,9 +86,11 @@ main {
     0% {
         transform: translate(-100%, 0);
     }
+
     60% {
         transform: translate(-100%, 0);
     }
+
     100% {
         transform: translate(0, 0);
     }
@@ -187,26 +192,32 @@ main {
 
 #campus-places {
     display: flex;
-width: 720px;
-align-items: flex-start;
-align-content: flex-start;
-gap: 0px 60px;
-flex-wrap: wrap;
+    width: 720px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 0px 60px;
+    flex-wrap: wrap;
+}
+
+.progressbar {
+    background-color: #265970;
 }
 
 @keyframes appear {
     0% {
         opacity: 0;
     }
+
     92% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
 
-/* Medium devices (tablets, 600px and up) */
+/* Medium devices (tablets, 600px and up)
 @media (min-width: 600px) {
     html {
         font-size: 16px;
@@ -222,8 +233,8 @@ flex-wrap: wrap;
 
 
 /* Large devices (desktops, 1200px and up) */
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
     html {
         font-size: 18px;
     }
-}
+} */

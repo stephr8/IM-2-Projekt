@@ -60,6 +60,7 @@ function createCard(vehicle, station) {
 
     let directionIcon = document.createElement('img');
     directionIcon.src = '../images/directionIcon.svg';
+    directionIcon.className = 'directionIcon';
 
 
     let distanceDiv = document.createElement('div');
@@ -72,7 +73,8 @@ function createCard(vehicle, station) {
 
 
     distanceDiv.addEventListener('mouseover', () => {
-        distanceDiv.textContent = station.address + "  " + station.zip + "  " + station.city;
+        distanceDiv.textContent = station.address + "\n" + station.zip + "  " + station.city;
+
     });
 
     distanceDiv.addEventListener('mouseout', () => {
@@ -94,7 +96,15 @@ function createCard(vehicle, station) {
     detailsDiv.textContent = vehicle.ebike_battery_level;
     if (vehicle.ebike_battery_level == null) {
         detailsDiv.textContent = "Dieses Velo ist kein E-Bike.";
-        smalliconBike.src = '../images/smallicon-bike.svg';
+        smalliconBike.src = '../images/bikeIcon.svg';
+    }
+    if (vehicle.ebike_battery_level != null) {
+        let progressbar = document.createElement('progress');
+        progressbar.className = 'progressbar';
+        progressbar.value = vehicle.ebike_battery_level;
+        progressbar.max = 100;
+
+        detailsDiv.appendChild(progressbar);
     }
     if (vehicle.ebike_battery_level < 20) {
         detailsDiv.style.color = "red";
@@ -105,18 +115,13 @@ function createCard(vehicle, station) {
     if (vehicle.ebike_battery_level > 50) {
         detailsDiv.style.color = "green";
     }
+    var newColorHex = "#265970"; 
+
     if (vehicle.ebike_battery_level == null) {
-        detailsDiv.style.color = "black";
+        detailsDiv.style.color = newColorHex;
     }
 
-    if (vehicle.ebike_battery_level != null) {
-        let progressbar = document.createElement('progress');
-        progressbar.className = 'progressbar';
-        progressbar.value = vehicle.ebike_battery_level;
-        progressbar.max = 100;
-
-        detailsDiv.appendChild(progressbar);
-    }
+    
 
 
 
@@ -204,15 +209,34 @@ function createCard(vehicle, station) {
     button.textContent = "Reservieren";
     button.dataset.vehicle = "v" + vehicle.name;
 
+    let isReserved = false;
     // Add event listener to the existing button to show the overlay
     button.addEventListener('click', function (event) {
+        if (!isReserved) {
+        button.textContent = "Reserviert";
+
         if (vehicle.ebike_battery_level == null) {
-            document.getElementById(event.target.dataset.vehicle).src = '../images/smallicon-bike-crossed.svg';
+            document.getElementById(event.target.dataset.vehicle).src = '../images/bikeIcon-crossed.svg';
+     
         } else {
             document.getElementById(event.target.dataset.vehicle).src = '../images/ebikeIcon-crossed.svg';
         }
-    });
-
+    isReserved = true;
+    } else {
+    // Change button text back to original
+    button.textContent = "Reservieren";
+    
+    // Restore original vehicle icon
+    if (vehicle.ebike_battery_level == null) {
+        document.getElementById(event.target.dataset.vehicle).src = '../images/bikeIcon.svg';
+    } else {
+        document.getElementById(event.target.dataset.vehicle).src = '../images/ebikeIcon.svg';
+    }
+    
+    // Update reservation state to false
+    isReserved = false;
+}
+});
     // Append the button to the document body (or to a specific container)
     document.body.appendChild(button);
 
