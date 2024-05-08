@@ -42,7 +42,7 @@ function createCard(vehicle, station) {
     let cardHeader = document.createElement('div');
     cardHeader.className = 'cardHeader';
     let smalliconBike = document.createElement('img');
-    smalliconBike.src = '../images/smallicon-bike.svg';
+    smalliconBike.src = '../images/ebikeIcon.svg';
     cardHeader.appendChild(smalliconBike);
     document.body.appendChild(cardHeader);
 
@@ -70,11 +70,11 @@ function createCard(vehicle, station) {
         distanceDiv.textContent = "300m";
     }
 
-    
+
     distanceDiv.addEventListener('mouseover', () => {
         distanceDiv.textContent = station.address + "  " + station.zip + "  " + station.city;
     });
-    
+
     distanceDiv.addEventListener('mouseout', () => {
         if (station.id === 870) {
             distanceDiv.innerHTML = "40m";
@@ -82,10 +82,10 @@ function createCard(vehicle, station) {
             distanceDiv.innerHTML = "300m";
         }
         distanceDiv.innerHTML += directionIcon.outerHTML;
-    
+
     });
-    
-    
+
+
     let detailsDiv = document.createElement('div');
     detailsDiv.className = 'detailsDiv';
 
@@ -94,6 +94,7 @@ function createCard(vehicle, station) {
     detailsDiv.textContent = vehicle.ebike_battery_level;
     if (vehicle.ebike_battery_level == null) {
         detailsDiv.textContent = "Dieses Velo ist kein E-Bike.";
+        smalliconBike.src = '../images/smallicon-bike.svg';
     }
     if (vehicle.ebike_battery_level < 20) {
         detailsDiv.style.color = "red";
@@ -119,60 +120,84 @@ function createCard(vehicle, station) {
 
 
 
-    // Function to create and show the overlay
-    function showOverlay() {
-        // Create overlay elements
-        const overlay = document.createElement('div');
-        overlay.className = 'overlay';
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Semi-transparent black background
-        overlay.style.display = 'none'; // Hide overlay initially
-        overlay.style.zIndex = '1000'; // Ensure overlay is on top of other elements
+    // // Function to create and show the overlay
+    // function showOverlay() {
+    //     // Create overlay elements
+    //     const overlay = document.createElement('div');
+    //     overlay.className = 'overlay';
+    //     overlay.style.position = 'fixed';
+    //     overlay.style.top = '0';
+    //     overlay.style.left = '0';
+    //     overlay.style.width = '100%';
+    //     overlay.style.height = '100%';
+    //     overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Semi-transparent black background
+    //     overlay.style.display = 'none'; // Hide overlay initially
+    //     overlay.style.zIndex = '1000'; // Ensure overlay is on top of other elements
 
-        const overlayContent = document.createElement('div');
-        overlayContent.className = 'overlay-content';
-        overlayContent.style.position = 'absolute';
-        overlayContent.style.top = '50%';
-        overlayContent.style.left = '50%';
-        overlayContent.style.transform = 'translate(-50%, -50%)';
-        overlayContent.style.backgroundColor = 'white';
-        overlayContent.style.padding = '20px';
-        overlayContent.style.borderRadius = '8px';
+    //     const overlayContent = document.createElement('div');
+    //     overlayContent.className = 'overlay-content';
+    //     overlayContent.style.position = 'absolute';
+    //     overlayContent.style.top = '50%';
+    //     overlayContent.style.left = '50%';
+    //     overlayContent.style.transform = 'translate(-50%, -50%)';
+    //     overlayContent.style.backgroundColor = 'white';
+    //     overlayContent.style.padding = '20px';
+    //     overlayContent.style.borderRadius = '8px';
 
-        let overlayHeading = document.createElement('h2');
-        overlayHeading.textContent = "Velo " + vehicle.name + " wird für 15 min reserviert.";
-        overlayContent.appendChild(overlayHeading);
+    //     function startTimer() {
+    //         var overlay = document.getElementById("overlay");
+    //         overlay.style.display = "flex";
+
+    //         var timerElement = document.getElementById("timer");
+    //         var duration = 15 * 60; // 15 minutes in seconds
+
+    //         var timerInterval = setInterval(function () {
+    //             var minutes = Math.floor(duration / 60);
+    //             var seconds = duration % 60;
+
+    //             timerElement.textContent = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+
+    //             if (--duration < 0) {
+    //                 clearInterval(timerInterval);
+    //                 timerElement.textContent = "00:00"; // Freeze on zero
+    //             }
+    //         }, 1000);
+    //     }
+
+    //     let overlayHeading = document.createElement('h2');
+    //     overlayHeading.textContent = "Velo " + vehicle.name + " wird für 15 min reserviert";
+    //     overlayContent.appendChild(overlayHeading);
 
 
-        let overlayParagraph = document.createElement('p');
-        overlayParagraph.textContent = station.address + "  " + station.zip + "  " + station.city;
-        overlayContent.appendChild(overlayParagraph);
+    //     let overlayParagraph = document.createElement('p');
+    //     overlayParagraph.textContent = station.address + "  " + station.zip + "  " + station.city;
+    //     overlayContent.appendChild(overlayParagraph);
 
-        const closeOverlayBtn = document.createElement('button');
-        closeOverlayBtn.textContent = 'Close Overlay';
-        closeOverlayBtn.style.padding = '10px 20px';
-        closeOverlayBtn.style.fontSize = '16px';
-        closeOverlayBtn.style.cursor = 'pointer';
-        closeOverlayBtn.style.border = 'none';
-        closeOverlayBtn.style.borderRadius = '4px';
-        closeOverlayBtn.style.backgroundColor = '#007bff';
-        closeOverlayBtn.style.color = 'white';
-        closeOverlayBtn.addEventListener('click', () => {
-            overlay.style.display = 'none';
-        });
+    //     const closeOverlayBtn = document.createElement('button');
+    //     closeOverlayBtn.textContent = 'Close Overlay';
+    //     closeOverlayBtn.style.padding = '10px 20px';
+    //     closeOverlayBtn.style.fontSize = '16px';
+    //     closeOverlayBtn.style.cursor = 'pointer';
+    //     closeOverlayBtn.style.border = 'none';
+    //     closeOverlayBtn.style.borderRadius = '4px';
+    //     closeOverlayBtn.style.backgroundColor = '#007bff';
+    //     closeOverlayBtn.style.color = 'white';
+    //     closeOverlayBtn.addEventListener('click', () => {
+    //         overlay.style.display = 'none';
+    //     });
 
-        overlayContent.appendChild(closeOverlayBtn);
-        overlay.appendChild(overlayContent);
+    //     overlayContent.appendChild(closeOverlayBtn);
+    //     overlay.appendChild(overlayContent);
 
-        // Append overlay to the document body
-        document.body.appendChild(overlay);
+    //     // Append overlay to the document body
+    //     document.body.appendChild(overlay);
 
-        // Show overlay
-        overlay.style.display = 'block';
+    //     // Show overlay
+    //     overlay.style.display = 'block';
+    // }
+
+    function bikeReserved() {
+        smalliconBike.src = '../images/smallicon-bike-crossed.svg';
     }
 
     // Get reference to your existing button
@@ -181,7 +206,10 @@ function createCard(vehicle, station) {
     button.textContent = "Reservieren";
 
     // Add event listener to the existing button to show the overlay
-    button.addEventListener('click', showOverlay);
+    button.addEventListener('click', function () {
+        showOverlay();
+        bikeReserved();
+    });
 
     // Append the button to the document body (or to a specific container)
     document.body.appendChild(button);
