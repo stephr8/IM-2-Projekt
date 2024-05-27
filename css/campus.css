@@ -135,3 +135,11 @@ h2 {
 .directionIcon {
     height: 19px;
 }
+
+#campus_AB {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50vh;
+}
