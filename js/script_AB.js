@@ -91,37 +91,84 @@ function createCard(vehicle, station) {
     let detailsDiv = document.createElement('div');
     detailsDiv.className = 'detailsDiv';
 
-
-
     detailsDiv.textContent = vehicle.ebike_battery_level;
+
     if (vehicle.ebike_battery_level == null) {
         detailsDiv.textContent = "Dieses Velo ist kein E-Bike.";
         smalliconBike.src = '../images/bikeIcon.svg';
-    }
-    if (vehicle.ebike_battery_level != null) {
+        detailsDiv.style.color = "#265970";
+    } else {
         let progressbar = document.createElement('progress');
         progressbar.className = 'progressbar';
         progressbar.value = vehicle.ebike_battery_level;
         progressbar.max = 100;
-
-        detailsDiv.appendChild(progressbar);
-    }
-    if (vehicle.ebike_battery_level < 20) {
-        detailsDiv.style.color = "red";
-    }
-    if (vehicle.ebike_battery_level > 20 && vehicle.ebike_battery_level < 50) {
-        detailsDiv.style.color = "orange";
-    }
-    if (vehicle.ebike_battery_level > 50) {
-        detailsDiv.style.color = "green";
-    }
-    var newColorHex = "#265970"; 
-
-    if (vehicle.ebike_battery_level == null) {
-        detailsDiv.style.color = newColorHex;
-    }
-
     
+        detailsDiv.appendChild(progressbar);
+    
+        let progressColor;
+        if (vehicle.ebike_battery_level < 20) {
+            detailsDiv.style.color = "red";
+
+        } else if (vehicle.ebike_battery_level >= 20 && vehicle.ebike_battery_level < 50) {
+            detailsDiv.style.color = "#38686a";
+
+        } else if (vehicle.ebike_battery_level >= 50) {
+            detailsDiv.style.color = "#2589bd";
+
+        }
+    
+        // Style the progress bar
+        progressbar.style.width = '200px';
+        progressbar.style.height = '30px';
+        progressbar.style.border = '3px solid #265970';
+        progressbar.style.borderRadius = '20px';
+        progressbar.style.backgroundColor = '#EBE6D3';
+    
+        // Create a div to simulate the progress value
+        let progressValue = document.createElement('div');
+        progressValue.style.height = '100%';
+        progressValue.style.width = progressbar.value + '%';
+        progressValue.style.backgroundColor = progressColor;
+        progressValue.style.borderRadius = '15px 0 0 15px'; // Round the left side of the progress value
+        progressValue.style.transition = 'width 0.4s ease'; // Smooth transition for progress change
+    
+        // Insert the progress value into the progress bar
+        progressbar.appendChild(progressValue);
+    
+        // Update the progress bar value dynamically
+        progressbar.addEventListener('change', function() {
+            progressValue.style.width = progressbar.value + '%';
+        });
+    }
+
+    // detailsDiv.textContent = vehicle.ebike_battery_level;
+    // if (vehicle.ebike_battery_level == null) {
+    //     detailsDiv.textContent = "Dieses Velo ist kein E-Bike.";
+    //     smalliconBike.src = '../images/bikeIcon.svg';
+    // }
+    // if (vehicle.ebike_battery_level != null) {
+    //     let progressbar = document.createElement('progress');
+    //     progressbar.className = 'progressbar';
+    //     progressbar.value = vehicle.ebike_battery_level;
+    //     progressbar.max = 100;
+
+    //     detailsDiv.appendChild(progressbar);
+    // }
+    // if (vehicle.ebike_battery_level < 20) {
+    //     detailsDiv.style.color = "red";
+    // }
+    // if (vehicle.ebike_battery_level > 20 && vehicle.ebike_battery_level < 50) {
+    //     detailsDiv.style.color = "#38686a";
+    // }
+    // if (vehicle.ebike_battery_level > 50) {
+    //     detailsDiv.style.color = "#2589bd";
+    // }
+    // var newColorHex = "#265970";
+
+    // if (vehicle.ebike_battery_level == null) {
+    //     detailsDiv.style.color = newColorHex;
+    // }
+
 
 
 
@@ -212,31 +259,39 @@ function createCard(vehicle, station) {
     let isReserved = false;
     // Add event listener to the existing button to show the overlay
     button.addEventListener('click', function (event) {
-        if (!isReserved) {
-        button.textContent = "Reserviert";
 
-        if (vehicle.ebike_battery_level == null) {
-            document.getElementById(event.target.dataset.vehicle).src = '../images/bikeIcon-crossed.svg';
-     
+        const h2Element = document.querySelector('#app .vehicleCard .cardHeader h2');
+
+        if (!isReserved) {
+            button.textContent = "Reserviert";
+            button.style.backgroundColor = "var(--Gray-3, #828282)";
+            h2Element.style.color = "#828282";
+
+
+            if (vehicle.ebike_battery_level == null) {
+                document.getElementById(event.target.dataset.vehicle).src = '../images/bikeIcon-crossed.svg';
+
+            } else {
+                document.getElementById(event.target.dataset.vehicle).src = '../images/ebikeIcon-crossed.svg';
+            }
+            isReserved = true;
         } else {
-            document.getElementById(event.target.dataset.vehicle).src = '../images/ebikeIcon-crossed.svg';
+            // Change button text back to original
+            button.textContent = "Reservieren";
+            button.style.backgroundColor = "var(--blau, #265970)";
+            h2Element.style.color = "#265970";
+
+            // Restore original vehicle icon
+            if (vehicle.ebike_battery_level == null) {
+                document.getElementById(event.target.dataset.vehicle).src = '../images/bikeIcon.svg';
+            } else {
+                document.getElementById(event.target.dataset.vehicle).src = '../images/ebikeIcon.svg';
+            }
+
+            // Update reservation state to false
+            isReserved = false;
         }
-    isReserved = true;
-    } else {
-    // Change button text back to original
-    button.textContent = "Reservieren";
-    
-    // Restore original vehicle icon
-    if (vehicle.ebike_battery_level == null) {
-        document.getElementById(event.target.dataset.vehicle).src = '../images/bikeIcon.svg';
-    } else {
-        document.getElementById(event.target.dataset.vehicle).src = '../images/ebikeIcon.svg';
-    }
-    
-    // Update reservation state to false
-    isReserved = false;
-}
-});
+    });
     // Append the button to the document body (or to a specific container)
     document.body.appendChild(button);
 
