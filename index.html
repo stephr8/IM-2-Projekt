@@ -8,60 +8,127 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/bike-animation.css">
     <title>PubliBike</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon-bike.svg">
 </head>
+
 <body>
     <header>
+        <div id="headerStart">
+            <a href="/html/aboutus.html" style="text-decoration: none;">
+                <h3>Über uns</h3>
+            </a>
+        </div>
+        <!-- <div id="startanimation">
+            <div id="startlogo" class="logo">
+                <img src="/images/icon-bike.svg" href="index.html" alt="Bike Icon" class="icon-bike">
+                <div class="text">
+                    <div class="logo-title"> PubliBike</div>
+                    <div class="logo-subtitle">Finde dein Velo</div>
+                </div>
+            </div>
 
-    </header> 
-    <div id="header">
-    
-        <a href="aboutus.html" style="text-decoration: none;"><h3>Über uns</h3></a>
-    </div>
-    <div id="startanimation">
-        <div id="startlogo" class="logo">
-            <img src="/images/icon-bike.svg" href="index.html" alt="Bike Icon" class="icon-bike">
-            <div class="text">
-                <div class="logo-title"> PubliBike</div>
-                <div class="logo-subtitle">Finde dein Velo</div>
-            </div>
-        </div>
-    </div>
+        </div> -->
+
+    </header>
+
+
     <main>
-        <div id="static-logo-animation">
-            <img src="/images/smallicon-bike.svg" alt="Bike Icon" class="smallicon-bike">
-            <div class="text-static">
-                <div class="logo-smalltitle"> PubliBike</div>
-                <div class="logo-smallsubtitle">Finde dein Velo</div>
+        <div id="header">
+            <div id="startanimation">
+                <div id="startlogo" class="logo">
+                    <img src="/images/icon-bike.svg" href="index.html" alt="Bike Icon" class="icon-bike">
+                    <div class="text">
+                        <div class="logo-title"> PubliBike</div>
+                        <div class="logo-subtitle">Finde dein Velo</div>
+                    </div>
+                </div>
+    
             </div>
+            <a href="index.html" style="text-decoration: none;">
+                <div id="static-logo-animation">
+                    <img src="/images/smallicon-bike.svg" alt="Bike Icon" class="smallicon-bike">
+                    <div class="text-static">
+                        <div class="logo-smalltitle"> PubliBike</div>
+                        <div class="logo-smallsubtitle">Finde dein Velo</div>
+                    </div>
+                </div>
+            </a>
         </div>
+
+    
         <div id="campus-content">
             <div id="campus-question">
                 <h1>An welchem Campus bist du gerade?</h1>
             </div>
             <div id="campus-places">
+<div id="svgAB">
                 <a href="html/campus_AB.html">
-                    <img src="/images/campusAB.svg" alt="Campus A und B">
+                    <svg width="330" height="330" viewBox="0 0 330 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="258.318" y="50" width="81.0089" height="99.9136" transform="rotate(40.8248 258.318 50)" fill="#377692"/>
+                        <path d="M77.6581 102.3L28.6001 202.132L151.908 260.7L169.145 226.092L146.605 215.443L177.1 151.55L77.6581 102.3Z" fill="#377692"/>
+                        <path d="M27.7578 99.4219L17.5625 129H11.3984L24.2422 94.875H28.1797L27.7578 99.4219ZM36.2891 129L26.0703 99.4219L25.625 94.875H29.5859L42.4766 129H36.2891ZM35.7969 116.344V121.008H17.2344V116.344H35.7969Z" fill="#377692"/>
+                        <path d="M214.266 193.578H205.57L205.523 189.289H213.117C214.398 189.289 215.484 189.102 216.375 188.727C217.281 188.336 217.969 187.781 218.438 187.062C218.906 186.328 219.141 185.445 219.141 184.414C219.141 183.273 218.922 182.344 218.484 181.625C218.047 180.906 217.375 180.383 216.469 180.055C215.578 179.727 214.438 179.562 213.047 179.562H207.352V209H201.469V174.875H213.047C214.922 174.875 216.594 175.055 218.062 175.414C219.547 175.773 220.805 176.336 221.836 177.102C222.883 177.852 223.672 178.805 224.203 179.961C224.75 181.117 225.023 182.492 225.023 184.086C225.023 185.492 224.688 186.781 224.016 187.953C223.344 189.109 222.352 190.055 221.039 190.789C219.727 191.523 218.094 191.961 216.141 192.102L214.266 193.578ZM214.008 209H203.719L206.367 204.336H214.008C215.336 204.336 216.445 204.117 217.336 203.68C218.227 203.227 218.891 202.609 219.328 201.828C219.781 201.031 220.008 200.102 220.008 199.039C220.008 197.93 219.812 196.969 219.422 196.156C219.031 195.328 218.414 194.695 217.57 194.258C216.727 193.805 215.625 193.578 214.266 193.578H207.656L207.703 189.289H216.305L217.641 190.906C219.516 190.969 221.055 191.383 222.258 192.148C223.477 192.914 224.383 193.906 224.977 195.125C225.57 196.344 225.867 197.656 225.867 199.062C225.867 201.234 225.391 203.055 224.438 204.523C223.5 205.992 222.148 207.109 220.383 207.875C218.617 208.625 216.492 209 214.008 209Z" fill="#377692"/>
+                        </svg>
                 </a>
-                <img src="/images/campusC.svg" alt="Campus C" class="campusC">
-                <img src="/images/campusFEDH.svg" alt="Campus F, E, D und H" class="campusFEDH">
-                <img src="/images/campusI.svg" alt="Campus I" class="campusI">
+            </div>
+            <div id="svgC">
+                <a href="/images/campusC.svg">
+                    <svg width="330" height="330" viewBox="0 0 330 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="84.7" y="145.2" width="160" height="40" fill="#377692" />
+                        <path
+                            d="M170.625 118.891H176.484C176.297 121.125 175.672 123.117 174.609 124.867C173.547 126.602 172.055 127.969 170.133 128.969C168.211 129.969 165.875 130.469 163.125 130.469C161.016 130.469 159.117 130.094 157.43 129.344C155.742 128.578 154.297 127.5 153.094 126.109C151.891 124.703 150.969 123.008 150.328 121.023C149.703 119.039 149.391 116.82 149.391 114.367V111.531C149.391 109.078 149.711 106.859 150.352 104.875C151.008 102.891 151.945 101.195 153.164 99.7891C154.383 98.3672 155.844 97.2812 157.547 96.5312C159.266 95.7812 161.195 95.4062 163.336 95.4062C166.055 95.4062 168.352 95.9062 170.227 96.9062C172.102 97.9062 173.555 99.2891 174.586 101.055C175.633 102.82 176.273 104.844 176.508 107.125H170.648C170.492 105.656 170.148 104.398 169.617 103.352C169.102 102.305 168.336 101.508 167.32 100.961C166.305 100.398 164.977 100.117 163.336 100.117C161.992 100.117 160.82 100.367 159.82 100.867C158.82 101.367 157.984 102.102 157.312 103.07C156.641 104.039 156.133 105.234 155.789 106.656C155.461 108.062 155.297 109.672 155.297 111.484V114.367C155.297 116.086 155.445 117.648 155.742 119.055C156.055 120.445 156.523 121.641 157.148 122.641C157.789 123.641 158.602 124.414 159.586 124.961C160.57 125.508 161.75 125.781 163.125 125.781C164.797 125.781 166.148 125.516 167.18 124.984C168.227 124.453 169.016 123.68 169.547 122.664C170.094 121.633 170.453 120.375 170.625 118.891Z"
+                            fill="#377692" />
+                    </svg>
+                </a>
+            </div>
+            <div id="svgFEDH">
+                <a href="/images/campusFEDH.svg">
+                    <svg width="330" height="330" viewBox="0 0 330 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="133.373" y="91.1062" width="71.7386" height="92.9945"
+                            transform="rotate(-8.6636 133.373 91.1062)" fill="#377692" />
+                        <path
+                            d="M47.9761 133.626L57.1813 194.04L128.101 183.233L114.093 91.3L85.2 95.7025L90.0027 127.223L47.9761 133.626Z"
+                            fill="#377692" />
+                        <rect x="165.273" y="238.785" width="74.3956" height="71.7386"
+                            transform="rotate(-8.5694 165.273 238.785)" fill="#377692" />
+                        <rect x="221.373" y="80.7053" width="61.1107" height="92.9945"
+                            transform="rotate(-8.6636 221.373 80.7053)" fill="#377692" />
+                        <path
+                            d="M16.3516 138.875V173H10.4688V138.875H16.3516ZM30.2734 153.805V158.469H14.8516V153.805H30.2734ZM32.2188 138.875V143.562H14.8516V138.875H32.2188Z"
+                            fill="#377692" />
+                        <path
+                            d="M125.016 250.125V254.789H106.898V250.125H125.016ZM108.352 235.875V270H102.469V235.875H108.352ZM129.539 235.875V270H123.68V235.875H129.539Z"
+                            fill="#377692" />
+                        <path
+                            d="M176.805 54.3359V59H158.688V54.3359H176.805ZM160.352 24.875V59H154.469V24.875H160.352ZM174.438 39.125V43.7188H158.688V39.125H174.438ZM176.688 24.875V29.5625H158.688V24.875H176.688Z"
+                            fill="#377692" />
+                        <path
+                            d="M305.383 120H298.094L298.141 115.336H305.383C307.492 115.336 309.258 114.875 310.68 113.953C312.117 113.031 313.195 111.711 313.914 109.992C314.648 108.273 315.016 106.227 315.016 103.852V102C315.016 100.156 314.805 98.5234 314.383 97.1016C313.977 95.6797 313.367 94.4844 312.555 93.5156C311.758 92.5469 310.773 91.8125 309.602 91.3125C308.445 90.8125 307.109 90.5625 305.594 90.5625H297.953V85.875H305.594C307.859 85.875 309.93 86.2578 311.805 87.0234C313.68 87.7734 315.297 88.8594 316.656 90.2812C318.031 91.7031 319.086 93.4062 319.82 95.3906C320.555 97.375 320.922 99.5938 320.922 102.047V103.852C320.922 106.305 320.555 108.523 319.82 110.508C319.086 112.492 318.031 114.195 316.656 115.617C315.281 117.023 313.641 118.109 311.734 118.875C309.844 119.625 307.727 120 305.383 120ZM301.352 85.875V120H295.469V85.875H301.352Z"
+                            fill="#377692" />
+                    </svg>
+                </a>
+            </div>
+                <div id="svgI">
+                <a href="/images/campusI.svg">
+                    <svg width="330" height="330" viewBox="0 0 330 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M263.487 96.8L45.1001 163.053L66.5135 232.1L150.075 206.884L160.675 214.267L197.648 203.11L203.525 190.403L284.9 165.847L263.487 96.8Z"
+                            fill="#377692" />
+                        <path d="M159.75 78.875V113H153.867V78.875H159.75Z" fill="#377692" />
+                    </svg>
+                </a>
+                </div>
+
             </div>
         </div>
 
-
-
-
-        <!-- <div class="loading-spinner">
-        <img src="/images/static.svg" class="background" alt="Background">
-        <img src="/images/left-wheel.svg" class="rotating-image-left" alt="Rotating Image 1">
-        <img src="/images/right-wheel.svg" class="rotating-image-right" alt="Rotating Image 2">
-    </div> -->
     </main>
     <footer></footer>
 </body>
