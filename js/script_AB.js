@@ -73,7 +73,8 @@ function createCard(vehicle, station) {
 
 
     distanceDiv.addEventListener('mouseover', () => {
-        distanceDiv.textContent = station.address + "\n" + station.zip + "  " + station.city;
+        // distanceDiv.textContent = station.address + '<br>' + station.zip + "  " + station.city;
+        distanceDiv.innerHTML = `${station.address}<br>${station.zip}  ${station.city}`;
 
     });
 
@@ -91,54 +92,60 @@ function createCard(vehicle, station) {
     let detailsDiv = document.createElement('div');
     detailsDiv.className = 'detailsDiv';
 
-    detailsDiv.textContent = vehicle.ebike_battery_level;
+    // detailsDiv.textContent = vehicle.ebike_battery_level + '%';
 
     if (vehicle.ebike_battery_level == null) {
-        detailsDiv.textContent = "Dieses Velo ist kein E-Bike.";
+        detailsDiv.textContent = "Dieses Velo ist kein E-Bike";
         smalliconBike.src = '../images/bikeIcon.svg';
         detailsDiv.style.color = "#265970";
     } else {
         let progressbar = document.createElement('progress');
-        progressbar.className = 'progressbar';
+        // progressbar.className = 'progressbar';
         progressbar.value = vehicle.ebike_battery_level;
         progressbar.max = 100;
     
-        detailsDiv.appendChild(progressbar);
+        let percentageText = document.createTextNode(vehicle.ebike_battery_level + "%");
+       
     
         let progressColor;
         if (vehicle.ebike_battery_level < 20) {
-            detailsDiv.style.color = "red";
+            detailsDiv.style.color = "#d9af5e";
+            progressbar.className = 'progressbar percent_20';
 
         } else if (vehicle.ebike_battery_level >= 20 && vehicle.ebike_battery_level < 50) {
-            detailsDiv.style.color = "#38686a";
+            detailsDiv.style.color = "#377692";
+            progressbar.className = 'progressbar percent_50';
 
         } else if (vehicle.ebike_battery_level >= 50) {
-            detailsDiv.style.color = "#2589bd";
-
+            detailsDiv.style.color = "#869F80";
+            progressbar.className = 'progressbar percent_100';
         }
+
+        detailsDiv.appendChild(progressbar);
+        detailsDiv.appendChild(percentageText);
     
         // Style the progress bar
-        progressbar.style.width = '200px';
-        progressbar.style.height = '30px';
-        progressbar.style.border = '3px solid #265970';
-        progressbar.style.borderRadius = '20px';
-        progressbar.style.backgroundColor = '#EBE6D3';
+        // progressbar.style.width = '200px';
+        // progressbar.style.height = '30px';
+        // progressbar.style.border = '3px solid #265970';
+        // progressbar.style.borderRadius = '20px';
+        // progressbar.style.backgroundColor = '#EBE6D3';
     
-        // Create a div to simulate the progress value
-        let progressValue = document.createElement('div');
-        progressValue.style.height = '100%';
-        progressValue.style.width = progressbar.value + '%';
-        progressValue.style.backgroundColor = progressColor;
-        progressValue.style.borderRadius = '15px 0 0 15px'; // Round the left side of the progress value
-        progressValue.style.transition = 'width 0.4s ease'; // Smooth transition for progress change
+
+        // let progressValue = document.createElement('progressStyle');
+        // progressStyle.style.height = '100%';
+        // progressStyle.style.width = progressbar.value + '%';
+        // progressStyle.style.backgroundColor = progressColor;
+        // progressStyle.style.borderRadius = '15px'; 
+        // progressStyle.style.transition = 'width 0.4s ease'; 
     
         // Insert the progress value into the progress bar
-        progressbar.appendChild(progressValue);
+        // progressbar.appendChild(progressValue);
     
         // Update the progress bar value dynamically
-        progressbar.addEventListener('change', function() {
-            progressValue.style.width = progressbar.value + '%';
-        });
+        // progressbar.addEventListener('change', function() {
+        //     progressValue.style.width = progressbar.value + '%';
+        // });
     }
 
     // detailsDiv.textContent = vehicle.ebike_battery_level;
@@ -259,8 +266,8 @@ function createCard(vehicle, station) {
     let isReserved = false;
     // Add event listener to the existing button to show the overlay
     button.addEventListener('click', function (event) {
-
-        const h2Element = document.querySelector('#app .vehicleCard .cardHeader h2');
+        let parent = this.closest(".vehicleCard");
+        let h2Element = parent.querySelector('.cardHeader h2');
 
         if (!isReserved) {
             button.textContent = "Reserviert";

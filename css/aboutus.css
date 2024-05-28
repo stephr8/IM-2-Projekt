@@ -13,26 +13,44 @@
     --blau: #265970;
 }
 
-.logo-smalltitle {
+.text {
     display: flex;
-    width: 349px;
-    height: 36px;
     flex-direction: column;
-    justify-content: center;
-    color: var(--blau, #265970);
-    font-family: Jaldi;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+    align-items: flex-start;
+    height: 11vh;
 }
 
-.logo-smallsubtitle {
-    color: var(--blau, #265970);
-    font-family: Jaldi;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 4px;
+.team {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
 }
+
+.member {
+    text-align: center;
+    height: 400px;
+    width: 400px;
+}
+
+img {
+    width: 200px;
+}
+
+p {
+    margin: 0;
+    color: #2b6777;
+    font-size: 1em;
+}
+
+h2 {
+    color: var(--blau, #265970);
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.8px;
+}
+
+
