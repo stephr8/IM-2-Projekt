@@ -81,7 +81,7 @@ h3 {
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
     .member {
-        width: calc(50% - 40px); /* Adjust width for responsive grid (2 columns) */
+        width: calc(90% - 40px); /* Adjust width for responsive grid (2 columns) */
     }
 
     main {

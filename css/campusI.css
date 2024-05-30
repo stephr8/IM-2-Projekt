@@ -139,7 +139,7 @@ h2 {
     height: 19px;
 }
 
-#campus_AB {
+#campus_I {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -362,7 +362,7 @@ progress {
         width: 70%;
     }
 
-    .campusAB{
+    .campusI{
         width: 60%;
     }
 
