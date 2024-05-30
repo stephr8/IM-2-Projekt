@@ -4,7 +4,7 @@ const app = document.querySelector('#app');
 async function fetchData() {
     let url = "../130_extract.php";
     try {
-        let stations = await fetch(url); //response in pokemon
+        let stations = await fetch(url);
         let data = await stations.json();
         let data_chur = data.stations.filter((element) => element.city == "Chur");
         console.log(data_chur);
@@ -23,7 +23,7 @@ function processData(data) {
     for (station of data) {
         //(vehicles.name == "101503")
 
-        if (station.id === 870 || station.id === 879) {
+        if (station.id === 869) {
             station.vehicles.forEach(vehicle => {
                 console.log(vehicle);
                 createCard(vehicle, station);
@@ -65,11 +65,9 @@ function createCard(vehicle, station) {
 
     let distanceDiv = document.createElement('div');
     distanceDiv.className = 'distanceDiv';
-    if (station.id === 870) {
-        distanceDiv.textContent = "40m";
-    } else {
-        distanceDiv.textContent = "300m";
-    }
+
+        distanceDiv.textContent = "570m";
+ 
 
 
     distanceDiv.addEventListener('mouseover', () => {
@@ -79,11 +77,9 @@ function createCard(vehicle, station) {
     });
 
     distanceDiv.addEventListener('mouseout', () => {
-        if (station.id === 870) {
-            distanceDiv.innerHTML = "40m";
-        } else {
-            distanceDiv.innerHTML = "300m";
-        }
+
+            distanceDiv.innerHTML = "570m";
+
         distanceDiv.innerHTML += directionIcon.outerHTML;
 
     });

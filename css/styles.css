@@ -19,7 +19,6 @@ h1 {
     text-align: center;
     font-family: Jaldi, sans-serif;
     font-size: var(--font-size-h1);
-    font-style: normal;
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: 2.4px;
@@ -118,18 +117,14 @@ body {
     color: var(--blau, #265970);
     font-family: Jaldi, sans-serif;
     font-size: 48px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
 }
 
 .logo-smallsubtitle {
     color: var(--blau, #265970);
     font-family: Jaldi, sans-serif;
     font-size: 20px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     letter-spacing: 4px;
 }
 
@@ -167,18 +162,14 @@ body {
     color: var(--blau, #265970);
     font-family: Jaldi, sans-serif;
     font-size: 96px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
 }
 
 .logo-subtitle {
     color: var(--blau, #265970);
     font-family: Jaldi, sans-serif;
     font-size: 36px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     letter-spacing: 7.2px;
 }
 
@@ -217,7 +208,7 @@ h3 {
 }
 
 #headerStart {
-    display: box;
+    display: flex;
     padding: 20px 64px 0px 64px;
     justify-content: space-between;
     align-items: center;
@@ -236,7 +227,7 @@ h3 {
 }
 
 #header {
-    display: box;
+    display: flex;
     padding: 20px 64px 0px 64px;
     justify-content: space-between;
     align-items: center;
@@ -285,7 +276,7 @@ h3 {
 }
 
 
-.button:toggled {
+.button:after {
     background: var(--Gray-3, #828282);
 }
 
